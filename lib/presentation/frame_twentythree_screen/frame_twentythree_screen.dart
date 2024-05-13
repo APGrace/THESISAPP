@@ -69,7 +69,7 @@ class FrameTwentythreeScreen extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: _buildBottomBar(context),
+        // bottomNavigationBar: _buildBottomBar(context),
       ),
     );
   }
@@ -132,42 +132,6 @@ class FrameTwentythreeScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  /// Section Widget
-  Widget _buildBottomBar(BuildContext context) {
-    return CustomBottomBar(
-      onChanged: (BottomBarEnum type) {
-        Navigator.pushNamed(
-            navigatorKey.currentContext!, getCurrentRoute(type));
-      },
-    );
-  }
-
-  ///Handling route based on bottom click actions
-  String getCurrentRoute(BottomBarEnum type) {
-    switch (type) {
-      case BottomBarEnum.Dashboard:
-        return AppRoutes.frameFourPage;
-      case BottomBarEnum.Diagnose:
-        return "/";
-      case BottomBarEnum.Learn:
-        return "/";
-      case BottomBarEnum.Profile:
-        return "/";
-      default:
-        return "/";
-    }
-  }
-
-  ///Handling page based on route
-  Widget getCurrentPage(String currentRoute) {
-    switch (currentRoute) {
-      case AppRoutes.frameFourPage:
-        return FrameFourPage();
-      default:
-        return DefaultWidget();
-    }
   }
 
   /// Navigates to the frame FiveScreen when the action is triggered.

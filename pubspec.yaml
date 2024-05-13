@@ -10,11 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cached_network_image: ^3.3.0
+  camera: 0.10.6
+  camera_android: 0.10.9+1
+  camera_web: 0.3.3
+  image_picker: ^1.1.1
+  image_picker_android: ^0.8.12 
+  cached_network_image: ^3.3.1
   flutter_svg: ^2.0.9
   readmore: ^3.0.0
   dotted_border: ^2.1.0
-  intl: ^0.18.0
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
