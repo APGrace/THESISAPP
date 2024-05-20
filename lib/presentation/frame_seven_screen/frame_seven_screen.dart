@@ -1,9 +1,10 @@
-import 'package:thesisapp/widgets/app_bar/custom_app_bar.dart';
+import 'package:flutter/material.dart';
+
+import 'package:thesisapp/core/app_export.dart';
 import 'package:thesisapp/widgets/app_bar/appbar_leading_image.dart';
 import 'package:thesisapp/widgets/app_bar/appbar_subtitle.dart';
+import 'package:thesisapp/widgets/app_bar/custom_app_bar.dart';
 import 'package:thesisapp/widgets/custom_text_form_field.dart';
-import 'package:flutter/material.dart';
-import 'package:thesisapp/core/app_export.dart';
 
 // ignore_for_file: must_be_immutable
 class FrameSevenScreen extends StatelessWidget {
@@ -411,14 +412,9 @@ class FrameSevenScreen extends StatelessWidget {
                       left: 4.h,
                       top: 44.v,
                     ),
-                    child: Text(
-                      "Log In",
-                      style: CustomTextStyles
-                          .bodyMediumInknutAntiquaLightgreen900
-                          .copyWidth(
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
+                    child: Text("Log In",
+                        style: CustomTextStyles
+                            .bodyMediumInknutAntiquaLightgreen900WithUnderline),
                   ),
                 )
               ],

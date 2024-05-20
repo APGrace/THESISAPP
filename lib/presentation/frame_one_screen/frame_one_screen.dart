@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
+
+import 'package:thesisapp/core/app_export.dart';
 import 'package:thesisapp/widgets/custom_elevated_button.dart';
 import 'package:thesisapp/widgets/custom_outlined_button.dart';
-import 'package:flutter/material.dart';
-import 'package:thesisapp/core/app_export.dart';
 
 class FrameOneScreen extends StatelessWidget {
   const FrameOneScreen({Key? key})
@@ -27,6 +28,47 @@ class FrameOneScreen extends StatelessWidget {
                     child: Stack(
                       alignment: Alignment.topCenter,
                       children: [
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: SizedBox(
+                            height: 540.v,
+                            width: double.maxFinite,
+                            child: Stack(
+                              alignment: Alignment.topLeft,
+                              children: [
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Row(
+                                    children: [
+                                      SizedBox(width: 12),
+                                      CustomImageView(
+                                        imagePath: ImageConstant
+                                            .imgFreeLeavesIcon1571Thumb,
+                                        height: 32.v,
+                                        width: 35.h,
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(left: 8.h),
+                                        decoration: AppDecoration.outlineBlack,
+                                        child: Text(
+                                          "Welcome",
+                                          style:
+                                              CustomTextStyles.headlineLarge32,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                CustomImageView(
+                                  imagePath: ImageConstant.img1665462303185R,
+                                  height: 468.v,
+                                  width: 360.h,
+                                  alignment: Alignment.bottomCenter,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: Container(
@@ -60,46 +102,6 @@ class FrameOneScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Align(
-                          alignment: Alignment.topCenter,
-                          child: SizedBox(
-                            height: 540.v,
-                            width: double.maxFinite,
-                            child: Stack(
-                              alignment: Alignment.topLeft,
-                              children: [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Container(
-                                    margin: EdgeInsets.only(left: 41.h),
-                                    decoration: AppDecoration.outlineBlack,
-                                    child: Text(
-                                      "Welcome",
-                                      style: CustomTextStyles.headlineLarge32,
-                                    ),
-                                  ),
-                                ),
-                                CustomImageView(
-                                  imagePath:
-                                      ImageConstant.imgFreeLeavesIcon1571Thumb,
-                                  height: 32.v,
-                                  width: 35.h,
-                                  alignment: Alignment.topLeft,
-                                  margin: EdgeInsets.only(
-                                    left: 6.h,
-                                    top: 25.v,
-                                  ),
-                                ),
-                                CustomImageView(
-                                  imagePath: ImageConstant.img1665462303185R,
-                                  height: 468.v,
-                                  width: 360.h,
-                                  alignment: Alignment.bottomCenter,
-                                )
-                              ],
-                            ),
-                          ),
-                        )
                       ],
                     ),
                   ),

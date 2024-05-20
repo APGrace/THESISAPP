@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:thesisapp/core/app_export.dart';
 
 class AppDecoration {
@@ -36,8 +37,8 @@ class AppDecoration {
           begin: Alignment(0.5, 0),
           end: Alignment(0.5, 1),
           colors: [
-            appTheme.greenA100F9,
-            appTheme.greenA100F9,
+            appTheme.greenA100F9.withOpacity(.1),
+            appTheme.greenA100F9.withOpacity(1),
           ],
         ),
       );

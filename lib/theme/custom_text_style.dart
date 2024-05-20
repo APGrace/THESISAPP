@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:thesisapp/core/utils/size_utils.dart';
 import 'package:thesisapp/theme/theme_helper.dart';
 
@@ -48,6 +49,15 @@ class CustomTextStyles {
         fontSize: 13.fSize,
         fontWeight: FontWeight.w300,
       );
+
+  static get bodyMediumInknutAntiquaLightgreen900WithUnderline =>
+      theme.textTheme.bodyMedium!.inknutAntiqua.copyWith(
+        color: appTheme.lightGreen900,
+        fontSize: 13.fSize,
+        fontWeight: FontWeight.w300,
+        decoration: TextDecoration.underline,
+      );
+
   static get bodyMediumInknutAntiquaOnPrimaryContainer =>
       theme.textTheme.bodyMedium!.inknutAntiqua.copyWith(
         color: theme.colorScheme.onPrimaryContainer.withOpacity(1),
