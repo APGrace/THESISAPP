@@ -20,43 +20,45 @@ class FrameSixScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: theme.colorScheme.onPrimaryContainer.withOpacity(1),
-        body: SizedBox(
-          width: double.maxFinite,
-          child: Column(
-            children: [
-              _buildWidget(context),
-              SizedBox(height: 6.v),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 47.h),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _buildSELECTPHOTO(context),
-                    _buildSTARTCAMERA(context)
-                  ],
+        body: SingleChildScrollView(
+          child: SizedBox(
+            width: double.maxFinite,
+            child: Column(
+              children: [
+                _buildWidget(context),
+                SizedBox(height: 6.v),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 47.h),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildSELECTPHOTO(context),
+                      _buildSTARTCAMERA(context)
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 14.v),
-              SizedBox(
-                height: 392.v,
-                width: double.maxFinite,
-                child: Stack(
-                  alignment: Alignment.topCenter,
-                  children: [
-                    _buildNinetyOne(context),
-                    CustomImageView(
-                      imagePath: ImageConstant.imgRectangle11,
-                      height: 175.v,
-                      width: 265.h,
-                      radius: BorderRadius.circular(
-                        20.h,
-                      ),
-                      alignment: Alignment.topCenter,
-                    )
-                  ],
-                ),
-              )
-            ],
+                SizedBox(height: 14.v),
+                SizedBox(
+                  height: 392.v,
+                  width: double.maxFinite,
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      _buildNinetyOne(context),
+                      CustomImageView(
+                        imagePath: ImageConstant.imgRectangle11,
+                        height: 175.v,
+                        width: 265.h,
+                        radius: BorderRadius.circular(
+                          20.h,
+                        ),
+                        alignment: Alignment.topCenter,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
         bottomNavigationBar: _buildBottomBar(context),

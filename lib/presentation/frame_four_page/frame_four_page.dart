@@ -26,9 +26,14 @@ class FrameFourPage extends StatelessWidget {
               SizedBox(
                 height: 451.v,
                 width: double.maxFinite,
-                child: Stack(
-                  alignment: Alignment.topCenter,
-                  children: [_buildAddNew(context), _buildView(context)],
+                child: SingleChildScrollView(
+                  // Added SingleChildScrollView here
+                  child: Column(
+                    children: [
+                      _buildAddNew(context),
+                      _buildView(context),
+                    ],
+                  ),
                 ),
               )
             ],
@@ -91,7 +96,7 @@ class FrameFourPage extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: 270.v,
+        height: 190.v,
         width: double.maxFinite,
         padding: EdgeInsets.symmetric(
           horizontal: 11.h,

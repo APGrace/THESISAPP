@@ -16,9 +16,6 @@ class FrameTwentytwoDialog extends StatelessWidget {
       children: [
         Material(
           child: GestureDetector(
-            onTap: () {
-              onTapThirteen(context);
-            },
             child: Container(
               width: 301.h,
               decoration: AppDecoration.fillLightgreen5001.copyWith(
@@ -56,7 +53,7 @@ class FrameTwentytwoDialog extends StatelessWidget {
                       ),
                       CustomElevatedButton(
                         height: 40.v,
-                        width: 151.h,
+                        width: 150.h,
                         text: "CONFIRM",
                         buttonStyle: CustomButtonStyles.fillPrimaryBR10,
                         buttonTextStyle: CustomTextStyles.titleMediumBlack,
@@ -70,10 +67,5 @@ class FrameTwentytwoDialog extends StatelessWidget {
         )
       ],
     );
-  }
-
-  /// Navigates to the frameSixScreen when the action is triggered.
-  onTapThirteen(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.frameSixScreen);
   }
 }
