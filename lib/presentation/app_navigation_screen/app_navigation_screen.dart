@@ -99,7 +99,7 @@ class AppNavigationScreen extends StatelessWidget {
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "Frame Twenty Two - Dialog",
+                          screenTitle: "Frame Twentytwo Dialog",
                           onTapScreenTitle: () =>
                               onTapDialogTitle(context, FrameTwentytwoDialog()),
                         ),

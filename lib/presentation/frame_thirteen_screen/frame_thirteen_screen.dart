@@ -1,17 +1,14 @@
-import 'package:thesisapp/widgets/app_bar/custom_app_bar.dart';
-import 'package:thesisapp/presentation/frame_four_page/frame_four_page.dart';
-import 'package:thesisapp/widgets/app_bar/appbar_leading_image.dart';
-import 'package:thesisapp/widgets/app_bar/appbar_subtitle.dart';
-import 'package:thesisapp/widgets/custom_text_form_field.dart';
-import 'package:thesisapp/widgets/custom_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:thesisapp/core/app_export.dart';
+import 'package:thesisapp/presentation/frame_four_page/frame_four_page.dart';
+import 'package:thesisapp/presentation/frame_fourteen_screen/frame_fourteen_screen.dart';
+import 'package:thesisapp/widgets/app_bar/appbar_leading_image.dart';
+import 'package:thesisapp/widgets/app_bar/appbar_subtitle.dart';
+import 'package:thesisapp/widgets/app_bar/custom_app_bar.dart';
+import 'package:thesisapp/widgets/custom_text_form_field.dart';
 
 class FrameThirteenScreen extends StatefulWidget {
-  FrameThirteenScreen({Key? key})
-      : super(
-          key: key,
-        );
+  FrameThirteenScreen({Key? key}) : super(key: key);
 
   @override
   State<FrameThirteenScreen> createState() => _FrameThirteenScreenState();
@@ -19,14 +16,9 @@ class FrameThirteenScreen extends StatefulWidget {
 
 class _FrameThirteenScreenState extends State<FrameThirteenScreen> {
   TextEditingController ninetyThreeController = TextEditingController();
-
   TextEditingController eightySixController = TextEditingController();
-
   TextEditingController eightyFiveController = TextEditingController();
-
   TextEditingController eightyTwoController = TextEditingController();
-
-  GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -53,22 +45,20 @@ class _FrameThirteenScreenState extends State<FrameThirteenScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SizedBox(height: 83.v),
-                      _buildNinetyThree(context),
+                      _buildButton(context, "Cultural Management",
+                          FrameFourteenScreen()),
                       SizedBox(height: 30.v),
-                      _buildEightySix(context),
+                      _buildButton(context, "Chemical Management",
+                          FrameFourteenScreen()),
                       SizedBox(height: 35.v),
-                      _buildEightyFive(context),
+                      _buildButton(context, "Physical Management",
+                          FrameFourteenScreen()),
                       SizedBox(height: 35.v),
-                      _buildEightyTwo(context),
+                      _buildButton(context, "Biological Management",
+                          FrameFourteenScreen()),
                     ],
                   ),
                 ),
-              ),
-              CustomImageView(
-                imagePath: ImageConstant.img16654623031851146x360,
-                height: 146.v,
-                width: 360.h,
-                alignment: Alignment.topCenter,
               ),
               Align(
                 alignment: Alignment.topCenter,
@@ -84,7 +74,7 @@ class _FrameThirteenScreenState extends State<FrameThirteenScreen> {
               Align(
                 alignment: Alignment.topCenter,
                 child: Container(
-                  margin: EdgeInsets.only(top: 10.v),
+                  margin: EdgeInsets.only(top: 20.v),
                   decoration: AppDecoration.outlineBlack,
                   child: Text(
                     "Strategies",
@@ -96,12 +86,10 @@ class _FrameThirteenScreenState extends State<FrameThirteenScreen> {
             ],
           ),
         ),
-        bottomNavigationBar: _buildBottomBar(context),
       ),
     );
   }
 
-  /// Section Widget
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       leadingWidth: 39.h,
@@ -125,80 +113,29 @@ class _FrameThirteenScreenState extends State<FrameThirteenScreen> {
     );
   }
 
-  /// Section Widget
-  Widget _buildNinetyThree(BuildContext context) {
-    return CustomTextFormField(
-      controller: ninetyThreeController,
-      hintText: "Cultural Management",
-      borderDecoration: TextFormFieldStyleHelper.outlineBlack,
-      fillColor: appTheme.lightGreen5001,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildEightySix(BuildContext context) {
-    return CustomTextFormField(
-      controller: eightySixController,
-      hintText: "Chemical Management",
-      borderDecoration: TextFormFieldStyleHelper.outlineBlack,
-      fillColor: appTheme.lightGreen5001,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildEightyFive(BuildContext context) {
-    return CustomTextFormField(
-      controller: eightyFiveController,
-      hintText: "Physical Management",
-      borderDecoration: TextFormFieldStyleHelper.outlineBlack,
-      fillColor: appTheme.lightGreen5001,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildEightyTwo(BuildContext context) {
-    return CustomTextFormField(
-      controller: eightyTwoController,
-      hintText: "Biological Management",
-      textInputAction: TextInputAction.done,
-      borderDecoration: TextFormFieldStyleHelper.outlineBlack,
-      fillColor: appTheme.lightGreen5001,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildBottomBar(BuildContext context) {
-    return CustomBottomBar(
-      onChanged: (BottomBarEnum type) {
-        Navigator.pushNamed(
-            navigatorKey.currentContext!, getCurrentRoute(type));
+  Widget _buildButton(
+      BuildContext context, String hintText, Widget destinationScreen) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => destinationScreen),
+        );
       },
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 10.v),
+        decoration: BoxDecoration(
+          color: appTheme.lightGreen5001,
+          borderRadius: BorderRadius.circular(8.0),
+          border: Border.all(color: Colors.black),
+        ),
+        child: Center(
+          child: Text(
+            hintText,
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+      ),
     );
-  }
-
-  ///Handling route based on bottom click actions
-  String getCurrentRoute(BottomBarEnum type) {
-    switch (type) {
-      case BottomBarEnum.Dashboard:
-        return AppRoutes.frameFourPage;
-      case BottomBarEnum.Diagnose:
-        return "/";
-      case BottomBarEnum.Learn:
-        return "/";
-      case BottomBarEnum.Profile:
-        return "/";
-      default:
-        return "/";
-    }
-  }
-
-  ///Handling page based on route
-  Widget getCurrentPage(String currentRoute) {
-    switch (currentRoute) {
-      case AppRoutes.frameFourPage:
-        return FrameFourPage();
-      default:
-        return DefaultWidget();
-    }
   }
 }

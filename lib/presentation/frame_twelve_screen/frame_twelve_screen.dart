@@ -44,7 +44,7 @@ class _FrameTwelveScreenState extends State<FrameTwelveScreen> {
             ],
           ),
         ),
-        bottomNavigationBar: _buildBottomBar(context),
+        //bottomNavigationBar: _buildBottomBar(context),
       ),
     );
   }
@@ -52,7 +52,7 @@ class _FrameTwelveScreenState extends State<FrameTwelveScreen> {
   /// Section Widget
   Widget _buildArrowOne(BuildContext context) {
     return SizedBox(
-      height: 182.v,
+      height: 187.v,
       width: double.maxFinite,
       child: Stack(
         alignment: Alignment.topCenter,
@@ -63,25 +63,30 @@ class _FrameTwelveScreenState extends State<FrameTwelveScreen> {
             width: 360.h,
             alignment: Alignment.topCenter,
           ),
-          CustomAppBar(
-            leadingWidth: 39.h,
-            leading: AppbarLeadingImage(
-              imagePath: ImageConstant.imgArrow1,
-              margin: EdgeInsets.only(
-                left: 17.h,
-                top: 21.v,
-                bottom: 133.v,
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context); // Navigate back to the previous screen
+            },
+            child: CustomAppBar(
+              leadingWidth: 36.h,
+              leading: AppbarLeadingImage(
+                imagePath: ImageConstant.imgArrow1,
+                margin: EdgeInsets.only(
+                  left: 14.h,
+                  top: 21.v,
+                  bottom: 133.v,
+                ),
               ),
-            ),
-            title: AppbarSubtitle(
-              text: "Back",
-              margin: EdgeInsets.only(
-                left: 10.h,
-                top: 11.v,
-                bottom: 125.v,
+              title: AppbarSubtitle(
+                text: "Back",
+                margin: EdgeInsets.only(
+                  left: 10.h,
+                  top: 11.v,
+                  bottom: 125.v,
+                ),
               ),
+              styleType: Style.bgGradientnamegreenA100f9namegreenA100f9,
             ),
-            styleType: Style.bgGradientnamegreenA100f9namegreenA100f9,
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -181,41 +186,5 @@ class _FrameTwelveScreenState extends State<FrameTwelveScreen> {
         ],
       ),
     );
-  }
-
-  /// Section Widget
-  Widget _buildBottomBar(BuildContext context) {
-    return CustomBottomBar(
-      onChanged: (BottomBarEnum type) {
-        Navigator.pushNamed(
-            navigatorKey.currentContext!, getCurrentRoute(type));
-      },
-    );
-  }
-
-  ///Handling route based on bottom click actions
-  String getCurrentRoute(BottomBarEnum type) {
-    switch (type) {
-      case BottomBarEnum.Dashboard:
-        return AppRoutes.frameFourPage;
-      case BottomBarEnum.Diagnose:
-        return "/";
-      case BottomBarEnum.Learn:
-        return "/";
-      case BottomBarEnum.Profile:
-        return "/";
-      default:
-        return "/";
-    }
-  }
-
-  ///Handling page based on route
-  Widget getCurrentPage(String currentRoute) {
-    switch (currentRoute) {
-      case AppRoutes.frameFourPage:
-        return FrameFourPage();
-      default:
-        return DefaultWidget();
-    }
   }
 }

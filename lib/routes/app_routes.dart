@@ -10,7 +10,7 @@ import '../presentation/frame_nineteen_tab_container_screen/frame_nineteen_tab_c
 import '../presentation/frame_ten_screen/frame_ten_screen.dart';
 import '../presentation/frame_seventeen_screen/frame_seventeen_screen.dart';
 import '../presentation/frame_twentythree_screen/frame_twentythree_screen.dart';
-import '../presentation/frame_five_screen/frame_five_screen.dart';
+//import '../presentation/frame_five_screen/frame_five_screen.dart';
 import '../presentation/frame_six_screen/frame_six_screen.dart';
 import '../presentation/frame_eleven_screen/frame_eleven_screen.dart';
 import '../presentation/frame_twelve_screen/frame_twelve_screen.dart';
@@ -19,9 +19,12 @@ import '../presentation/frame_fourteen_screen/frame_fourteen_screen.dart';
 import '../presentation/frame_fifteen_screen/frame_fifteen_screen.dart';
 import '../presentation/frame_sixteen_screen/frame_sixteen_screen.dart';
 import '../presentation/app_navigation_screen/app_navigation_screen.dart';
+import 'package:thesisapp/presentation/camera_screen/camera_screen.dart';
 
 class AppRoutes {
   static const String frameOneScreen = '/frame_one_screen';
+
+  static const String cameraScreen = '/camera_screen';
 
   static const String frameTwoScreen = '/frame_two_screen';
 
@@ -51,6 +54,7 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> routes = {
     frameOneScreen: (context) => FrameOneScreen(),
+    cameraScreen: (context) => CameraScreen(),
     frameTwoScreen: (context) => FrameTwoScreen(),
     frameSevenScreen: (context) => FrameSevenScreen(),
     frameThreeScreen: (context) => FrameThreeScreen(),
@@ -62,7 +66,7 @@ class AppRoutes {
     frameTenScreen: (context) => FrameTenScreen(),
     frameSeventeenScreen: (context) => FrameSeventeenScreen(),
     frameTwentythreeScreen: (context) => FrameTwentythreeScreen(),
-    frameFiveScreen: (context) => FrameFiveScreen(),
+    //frameFiveScreen: (context) => FrameFiveScreen(),
     frameSixScreen: (context) => FrameSixScreen(),
     frameElevenScreen: (context) => FrameElevenScreen(),
     frameTwelveScreen: (context) => FrameTwelveScreen(),
