@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:thesisapp/core/app_export.dart';
 import 'package:thesisapp/presentation/frame_four_page/frame_four_page.dart';
 import 'package:thesisapp/presentation/frame_twentythree_screen/frame_twentythree_screen.dart';
+import 'package:thesisapp/presentation/frame_ten_screen/frame_ten_screen.dart';
 import 'package:thesisapp/presentation/frame_seventeen_screen/frame_seventeen_screen.dart';
-
 import 'package:thesisapp/widgets/custom_bottom_bar.dart';
 
 class FrameFourContainerScreen extends StatefulWidget {
@@ -41,6 +41,8 @@ class _FrameFourContainerScreenState extends State<FrameFourContainerScreen> {
       case 1:
         return FrameTwentythreeScreen();
       // Add cases for other pages if needed
+      case 2:
+        return FrameTenScreen();
       case 3:
         return FrameSeventeenScreen();
       default:

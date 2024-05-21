@@ -1,21 +1,19 @@
-import 'package:thesisapp/widgets/app_bar/custom_app_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:thesisapp/core/app_export.dart';
 import 'package:thesisapp/widgets/app_bar/appbar_leading_circleimage.dart';
 import 'package:thesisapp/widgets/app_bar/appbar_trailing_image.dart';
+import 'package:thesisapp/widgets/app_bar/custom_app_bar.dart';
 import 'widgets/framefour_item_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:thesisapp/core/app_export.dart'; // ignore_for_file: must_be_immutable
 
 class FrameFourPage extends StatelessWidget {
-  const FrameFourPage({Key? key})
-      : super(
-          key: key,
-        );
+  const FrameFourPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: theme.colorScheme.onPrimaryContainer.withOpacity(1),
+<<<<<<< HEAD
         body: Container(
           width: double.maxFinite,
           decoration: AppDecoration.fillOnPrimaryContainer,
@@ -29,14 +27,29 @@ class FrameFourPage extends StatelessWidget {
                 child: SingleChildScrollView(
                   // Added SingleChildScrollView here
                   child: Column(
+=======
+        body: SingleChildScrollView(
+          child: Container(
+            width: double.maxFinite,
+            decoration: AppDecoration.fillOnPrimaryContainer,
+            child: Column(
+              children: [
+                SizedBox(height: 20.v),
+                _buildHelloElias(context),
+                SizedBox(
+                  height: 451.v,
+                  width: double.maxFinite,
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+>>>>>>> f45d90375badcd046d393301031d7fb7b4840a60
                     children: [
                       _buildAddNew(context),
                       _buildView(context),
                     ],
                   ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -85,7 +98,7 @@ class FrameFourPage extends StatelessWidget {
                 margin: EdgeInsets.fromLTRB(23.h, 8.v, 23.h, 2.v),
               )
             ],
-          )
+          ),
         ],
       ),
     );
@@ -175,7 +188,7 @@ class FrameFourPage extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -348,7 +361,7 @@ class FrameFourPage extends StatelessWidget {
                     Text(
                       "51 Detected Diseases",
                       style: CustomTextStyles.labelMediumErrorContainer,
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -359,7 +372,7 @@ class FrameFourPage extends StatelessWidget {
               width: 198.h,
               alignment: Alignment.topLeft,
               margin: EdgeInsets.only(top: 26.v),
-            )
+            ),
           ],
         ),
       ),
@@ -386,7 +399,7 @@ class FrameFourPage extends StatelessWidget {
           style: CustomTextStyles.labelMediumErrorContainer.copyWith(
             color: theme.colorScheme.errorContainer,
           ),
-        )
+        ),
       ],
     );
   }
@@ -396,7 +409,7 @@ class FrameFourPage extends StatelessWidget {
     Navigator.pushNamed(context, AppRoutes.frameSeventeenScreen);
   }
 
-//Navigates to the FrameTwentyoneScreen when the action is triggered.
+  /// Navigates to the FrameTwentyoneScreen when the action is triggered.
   onTapTxtMore(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.frameTwentyoneScreen);
   }
