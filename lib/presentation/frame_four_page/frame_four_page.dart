@@ -13,21 +13,6 @@ class FrameFourPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: theme.colorScheme.onPrimaryContainer.withOpacity(1),
-<<<<<<< HEAD
-        body: Container(
-          width: double.maxFinite,
-          decoration: AppDecoration.fillOnPrimaryContainer,
-          child: Column(
-            children: [
-              SizedBox(height: 20.v),
-              _buildHelloElias(context),
-              SizedBox(
-                height: 451.v,
-                width: double.maxFinite,
-                child: SingleChildScrollView(
-                  // Added SingleChildScrollView here
-                  child: Column(
-=======
         body: SingleChildScrollView(
           child: Container(
             width: double.maxFinite,
@@ -41,7 +26,6 @@ class FrameFourPage extends StatelessWidget {
                   width: double.maxFinite,
                   child: Stack(
                     alignment: Alignment.topCenter,
->>>>>>> f45d90375badcd046d393301031d7fb7b4840a60
                     children: [
                       _buildAddNew(context),
                       _buildView(context),

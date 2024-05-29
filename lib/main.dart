@@ -22,18 +22,9 @@ Future<void> main() async {
   // get available cameras
   cameras = await availableCameras();
 
-  await loadModel();
+//  await loadModel();
 
   runApp(MyApp());
-}
-
-Future<void> loadModel() async {
-  try {
-    interpreter = await Interpreter.fromAsset('assets/detect.tflite');
-    print('Model loaded successfully');
-  } catch (e) {
-    print('Error loading model: $e');
-  }
 }
 
 class MyApp extends StatelessWidget {
@@ -60,7 +51,7 @@ class ImageClassifier extends StatefulWidget {
 
 class _ImageClassifierState extends State<ImageClassifier> {
   File? _image;
-  List<String>? _output;
+  List? _output;
 
   @override
   void initState() {
@@ -70,52 +61,38 @@ class _ImageClassifierState extends State<ImageClassifier> {
     });
   }
 
-  Future<void> classifyImage(File image) async {
-    try {
-      var input = await preprocessImage(image);
-
-      var output = List.filled(1 * 3, 0)
-          .reshape([1, 3]); // Assuming output shape is [1, 3]
-
-      interpreter.run(input, output);
-
-      setState(() {
-        _output = output[0].map((e) => e.toString()).toList();
-      });
-    } catch (e) {
-      print('Error during inference: $e');
-    }
+  loadModel() async {
+    await Tflite.loadModel(
+      model: 'assets/model/detect.tflite',
+      labels: 'assets/model/labelmap.txt',
+    );
   }
 
-  Future<List<List<double>>> preprocessImage(File image) async {
-    return List.generate(1, (index) => List.generate(3, (index) => 0.0));
-  }
-
-  @override
-  void dispose() {
-    interpreter.close();
-    super.dispose();
+  classifyImage(File image) async {
+    var output = await Tflite.runModelOnImage(
+      path: image.path,
+      numResults: 2,
+      threshold: 0.5,
+      imageMean: 127.5,
+      imageStd: 127.5,
+    );
+    setState(() {
+      _output = output;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Leaf Disease Detection'),
+        title: Text('Image Classifier'),
       ),
       body: Container(
-        padding: EdgeInsets.all(20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _image == null ? Container() : Image.file(_image!),
             SizedBox(height: 20),
-            _output == null
-                ? Text('')
-                : Text(
-                    'Prediction: ${_output!.join(', ')}',
-                    style: TextStyle(fontSize: 20),
-                  ),
+            _output == null ? Text('') : Text('${_output![0]['label']}')
           ],
         ),
       ),
